@@ -1,0 +1,263 @@
+.calculator {
+  .calculator_left {
+    padding: 0 25px;
+    background-color: #fff;
+    header {
+      .calculator_title {
+        color: @Slate-900;
+        font-size: 24px;
+        padding-top: 20px;
+      }
+      .calculator_clear {
+        border: none;
+        text-decoration: underline;
+        background-color: transparent;
+        color: @Slate-700;
+        font-size: 16px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+    }
+    form {
+      color: @Slate-700;
+      margin-top: 26px;
+      input {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        padding-left: 17px;
+        font-family: 'PlusJakartaSans';
+        color: @Slate-900;
+        font-size: 18px;
+        font-weight: 600;
+        flex: 1;
+        border: none;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+          box-shadow: none;
+          border-color: transparent;
+        }
+      }
+      .inp_icon {
+        height: 50px;
+        width: 100%;
+        margin: 14px 0 25px;
+        border: 1px solid @Slate-500;
+        border-radius: 5px;
+        display: flex;
+        padding: 1px;
+        &:focus-within {
+          border: 1px solid @Lime;
+          padding: 0;
+          .icon_money, .icon_years, .icon_f {
+            background-color: @Lime;
+          }
+        }
+        .icon_money {
+          display: inline-block;
+          width: 45px;
+          height: 100%;
+          background-color: @Slate-100;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 700;
+        }
+        .icon_years {
+          width: 80px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: @Slate-100;
+          font-weight: 700;
+        }
+        .icon_f {
+          width: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: @Slate-100;
+          font-weight: 700;
+        }
+      }
+      .inp_error {
+        color: @Red;
+        border: 1px solid @Red;
+        padding: 0;
+        .icon_money, .icon_f, .icon_years {
+          background-color: @Red;
+          color: #fff;
+        }
+      }
+      fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+        .inp_box {
+          display: flex;
+          height: 50px;
+          width: 100%;
+          margin: 14px 0 25px;
+          border: 1px solid @Slate-500;
+          border-radius: 5px;
+          padding: 1px 1px 1px 19px;
+          align-items: center;
+          input {
+            width: 20px;
+            height: 20px;
+            flex: none;
+          }
+          input[type="radio"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid @Slate-500;
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            
+            &:checked {
+              border-color: @Lime;
+              &::before {
+                content: '';
+                position: absolute;
+                top: 3px;
+                left: 3px;
+                width: 10px;
+                height: 10px;
+                background-color: @Lime;
+                border-radius: 50%;
+              }
+            }
+          }
+          label {
+            margin-left: 19px;
+            cursor: pointer;
+          }
+        }
+        .active {
+          border: 1px solid @Lime;
+          background-color: hsla(61, 70%, 52%, 0.1);
+        }
+      }
+      .submit_btn {
+        width: 100%;
+        height: 57px;
+        margin-bottom: 33px;
+        border-radius: 28px;
+        border: none;
+        background-color: @Lime;
+        font-size: 18px;
+        font-weight: 600;
+        color: @Slate-900;
+        position: relative;
+        padding-left: 40px;
+        cursor: pointer;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 16px;
+          left: 51px;
+          width: 24px;
+          height: 24px;
+          background: url('../assets/images/icon-calculator.svg');
+        }
+      }
+    }
+  }
+  .calculator_right {
+    background-color: @Slate-900;
+    padding: 33px 24px;
+    color: @Slate-300;
+    h2 {
+      color: #fff;
+    }
+    .empty {
+      text-align: center;
+      .empty_context {
+        margin-top: 18px;
+      }
+    }
+  }
+}
+/* Chrome, Safari, Edge */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.error {
+  position: relative;
+  top: -18px;
+  color: @Red;
+  font-size: 14px;
+}
+
+@media (min-width: 992px) {
+  .calculator {
+    display: flex;
+    max-width: 1010px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    // height: 100%;
+    .calculator_left {
+      width: 505px;
+      border-radius: 20px 0 0 20px;
+      padding: 0 40px;
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        right: -80px;
+        top: 0;
+        height: 100%;
+        width: 80px;
+        background-color: #fff;
+        z-index: -1;
+        border-radius: 0 20px 20px 0;
+      }
+      header {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        .calculator_title, .calculator_clear {
+          margin: 0;
+        }
+      }
+      form {
+        .term_rate {
+          display: flex;
+          section {
+            &:first-child {
+              margin-right: 22px;
+            }
+          }
+        }
+        .submit_btn {
+          width: 315px;
+        }
+      }
+    }
+    .calculator_right {
+      flex: 1;
+      border-radius: 0 20px 20px 80px;
+      display: flex;
+      align-items: center;
+      padding: 40px;
+      .empty {
+      }
+    }
+  }
+}

@@ -3,3 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+@font-face {
+  font-family: 'PlusJakartaSans';
+  src: url('../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf');
+}
+html {
+  height: 100%;
+}
+body {
+  font-family: 'PlusJakartaSans';
+  height: 100%;
+  background-color: hsl(202, 86%, 94%);
+}
+li {
+  list-style: none;
+}
