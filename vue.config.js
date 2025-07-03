@@ -7,5 +7,8 @@ module.exports = defineConfig({
         additionalData: `@import "@/styles/common.less";`
       }
     }
-  }
+  },
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/mortgage-repayment-calculator/'
+    : '/'
 })

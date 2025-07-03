@@ -154,7 +154,7 @@ export default {
         return
       }
 
-      const P = Number(this.form.mortgage)
+      const P = Number(this.form.mortgage.replace(/,/g, ''))
       const n = Number(this.form.trem)
       const r = Number(this.form.rate)
       const i = r / 12 / 100
