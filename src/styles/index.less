@@ -16,6 +16,9 @@
         font-size: 16px;
         margin-top: 10px;
         cursor: pointer;
+        &:hover {
+          color: @Slate-900;
+        }
       }
     }
     form {
@@ -47,6 +50,9 @@
         border-radius: 5px;
         display: flex;
         padding: 1px;
+        &:hover {
+          border: 1px solid @Slate-900;
+        }
         &:focus-within {
           border: 1px solid @Lime;
           padding: 0;
@@ -103,6 +109,9 @@
           border-radius: 5px;
           padding: 1px 1px 1px 19px;
           align-items: center;
+          &:hover {
+            border: 1px solid @Lime;
+          }
           input {
             width: 20px;
             height: 20px;
@@ -137,6 +146,10 @@
           label {
             margin-left: 19px;
             cursor: pointer;
+            display: inline-block;
+            width: 100%;
+            height: 90%;
+            line-height: 41px;
           }
         }
         .active {
@@ -166,6 +179,9 @@
           height: 24px;
           background: url('../assets/images/icon-calculator.svg');
         }
+        &:hover {
+          opacity: 0.7;
+        }
       }
     }
   }
@@ -180,6 +196,38 @@
       text-align: center;
       .empty_context {
         margin-top: 18px;
+      }
+    }
+    .calculator_result {
+      .result_context {
+        margin-top: 18px;
+      }
+      .calculator_repay {
+        background-color: rgb(14, 36, 49);
+        padding: 18px;
+        border-top: 5px solid @Lime;
+        border-radius: 10px;
+        margin-top: 25px;
+        li {
+          h3 {
+            font-size: 16px;
+            font-weight: normal;
+          }
+          .monthly {
+            font-size: 40px;
+            font-weight: 700;
+            color: @Lime;
+            margin: 8px 0 18px;
+            padding-bottom: 17px;
+            border-bottom: 1px solid @Slate-700;
+          }
+          .total {
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 10px;
+          }
+        }
       }
     }
   }
@@ -256,7 +304,25 @@ input[type="number"] {
       display: flex;
       align-items: center;
       padding: 40px;
-      .empty {
+      position: relative;
+      .calculator_result {
+       position: absolute;
+       top: 40px;
+       width: 425px;
+       .result_context {
+        line-height: 25px;
+       }
+       .calculator_repay {
+        li {
+          h3 {
+            margin-top: 12px;
+           }
+          .monthly {
+            font-size: 55px;
+            margin-bottom: 43px;
+           }
+        }
+       }
       }
     }
   }
