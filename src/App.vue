@@ -89,7 +89,7 @@ export default {
   name: 'App',
   data () {
     return {
-      isEmpty: false, // 是否为空
+      isEmpty: true, // 是否为空
       // mortgageType: '', // 是否选中
       isError: {
         mortgage: false,
@@ -174,8 +174,12 @@ export default {
       this.result.monthly = monthly.toFixed(2)
       this.result.total = total.toFixed(2)
       this.isEmpty = false
-      this.animateNumber(this.$refs.monthlyRef, 0, Number(this.result.monthly))
-      this.animateNumber(this.$refs.totalRef, 0, Number(this.result.total))
+      this.$nextTick(() => {
+        if (this.$refs.monthlyRef && this.$refs.totalRef) {
+          this.animateNumber(this.$refs.monthlyRef, 0, Number(this.result.monthly))
+          this.animateNumber(this.$refs.totalRef, 0, Number(this.result.total))
+        }
+      })
     },
     // donghua
     animateNumber (el, start, end) {
